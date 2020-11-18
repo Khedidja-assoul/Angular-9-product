@@ -1,0 +1,12 @@
+.nav-bleu{
+    background-color: dodgerblue;
+    display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.navRight{
+    float: right;
+}
+a{
+    color: white;
+}

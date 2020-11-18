@@ -1,0 +1,13 @@
+.border{
+    border: dodgerblue;
+}
+h2{
+    color: dodgerblue;
+    text-align: center;
+}
+.contact{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50vh;
+    margin-bottom: 10vh;
+}

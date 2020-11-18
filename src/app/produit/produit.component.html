@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 border" >
+        <h2>Ajouter un produit</h2>
+        <form novalidate #form="ngForm" (ngSubmit)="ajouterProduit()">
+            <input class="form-control" type="text" name="design" #design="ngModel" [(ngModel)]="designation" placeholder="Designation" required maxlength="20" minlength="5">
+            <div *ngIf="design.errors && (design.invalid || design.touched)">
+                <samp class="text-danger" *ngIf="design.errors.required">
+                        La designation est obligatoire !
+                </samp>
+                <samp class="text-danger" *ngIf="design.errors.minlength">
+                    La designation doit contenir au mois 5 caractaires
+                </samp>
+                <samp class="text-danger" *ngIf="design.errors.maxlength">
+                    La designation doit contenir au max 20 caractaires
+                </samp>
+            </div>
+            <br>
+            <input class="form-control" type="text" name="prix" #prix="ngModel" [(ngModel)]="lePrix" placeholder="Prix" required pattern="[0-9]*">
+            <div *ngIf="prix.errors && (prix.invalid || prix.touched)">
+                <samp class="text-danger" *ngIf="prix.errors.required">
+                        Le prix est obligatoire !
+                </samp>
+                <samp class="text-danger" *ngIf="prix.errors.pattern">
+                    Le prix doit contenir que des chiffres !
+                </samp>
+            </div>
+            <br>
+            <button [disabled]="form.form.invalid" class="btn btn-success form-control" type="submit">Ajouter</button><br><br><br>
+        </form>
+
+        <div *ngIf="remplit">
+            <table>
+                <th>Designation</th>
+                <th>Prix</th>
+                <tbody>
+                    <tr *ngFor="let produit of produits">
+                        <td>{{produit.designation}}</td>
+                        <td>{{produit.prix}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+        <aside class="col-sm-3 border">
+        <h2>Aside</h2>
+        </aside>
+    </div>
+</div>
